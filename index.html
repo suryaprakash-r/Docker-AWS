@@ -60,7 +60,7 @@
                         FROM ubuntu:22.04
 
                         RUN apt-get update
-                        RUN apt-get install -y nginx zip url
+                        RUN apt-get install -y httpd zip url
                         
                         RUN echo "deamon off;" >>/etc/nginx/nginx.conf
                         RUN curl -o /var/www/html/master.zip -L https://github.com/suryaprakash-r/Docker-AWS.git
