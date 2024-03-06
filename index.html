@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker - AWS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            height: 115vh;
+            background: linear-gradient(326deg, rgba(96, 122, 255, 1) 0%, rgba(229, 64, 97, 1) 100%);
+        }
+
+        .heading {
+            width: 100%;
+            height: 15vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            text-transform: uppercase;
+            color: #f5d1d8;
+        }
+        h2{
+            color:  #ffd75f;
+        }
+
+        .content {
+            font-size: 1rem;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="heading">
+        <h1>Create a Docker Image and Deploy in AWS</h1>
+        <h2>Welcome to SP Tech Zone | <span class="name">Suryaprakash</span></h2>
+    </div>
+    <div class="content">
+        <pre>
+            <p>
+                Step 1: Create a file which one you want to publish or deploy in AWS using EBS
+                Step 2: Create a Git Repo 
+                Step 3: Upload the created file into the Git Repo
+                Step 4: Open your linux machine and create a Directory you can use windows as well as
+                Step 5: Create an file name called as Dockerfile and open it via Vi editor, if you use windows then open VS Code
+                Step 6: Write the below content and replace the github link which one you want to use 
+
+                        FROM ubuntu:22.04
+
+                        RUN apt-get update
+                        RUN apt-get install -y nginx zip url
+                        
+                        RUN echo "deamon off;" >>/etc/nginx/nginx.conf
+                        RUN curl -o /var/www/html/master.zip -L https://github.com/suryaprakash-r/Docker-AWS.git
+                        RUN cd /var/www/html/ && unzip master.zip && mv Docker-AWS/* . && rm -rf Dcoker-AWS master.zip
+                        
+                        EXPOSE 80
+                        CMD ["/usr/sbin/nginx", "-c", "/etc/nginx/nginx.conf"]
+
+                Step 7: Then save the file press Esc, :wq 
+                Step 8: Then Create a docker image using build
+                Step 9: docker build -t docker-aws . 
+                Step 10: Then check your images has been build or not using "docer images"
+                Step 11: Then run the docker container using "docker run -d -p 80:80 container-id"
+                Step 12: You can check the files/webpage is working or not by using "localhost:80" in your browser
+                Step 13: Now we deploy the Dockerfile in AWS -  EBS(Elastic Beanstalk)
+                Step 14: Now create a Application and set a application name
+                Step 15: Then choose the platform of which one you want to use now we we are create a docker file so choose Docker
+                Step 16: Choose upload mode for uploading the Dockerfile and upload it
+                Step 17: If you want to change the configuration you can create it
+                Step 18: Wait for a moment for creating the application it was build our application 
+                Step 19: Now you can see application was created and its showing a link of your webpage/file click the link 
+                Step 20: Finally it works...!!!
+            </p>
+        </pre>
+    </div>
+</body>
+
+</html>
